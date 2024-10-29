@@ -1,3 +1,5 @@
+import java.math.BigDecimal;
+
 public class Product
 {
     private String name = "Produkt";
@@ -9,7 +11,7 @@ public class Product
     }
 
     public void setName(String name) {
-        this.name = name;
+        if(name != null && name.length() != 0) this.name = name;
     }
 
     public Category getCategory() {
@@ -25,7 +27,10 @@ public class Product
     }
 
     public void setPrice(float price) {
-        this.price = price;
+        if(price > 0) {
+            this.price = price;
+            price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+                       }
     }
 
     @Override
