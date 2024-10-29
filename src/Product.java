@@ -28,8 +28,7 @@ public class Product
 
     public void setPrice(float price) {
         if(price > 0) {
-            this.price = price;
-            price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
+            this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
                        }
     }
 
