@@ -1,3 +1,5 @@
+import uk.po.entities.Category;
+
 public class Main
 {
 
@@ -9,7 +11,7 @@ public class Main
         System.out.println("Nazwa kategorii: '1' zostaje zmieniona na '2' ");
         c.setName("2");
         System.out.println("Wyświetlanie kategorii po zmianie nazwy: " + c);
-       /* Product p = new Product();
+       /* uk.po.entities.Product p = new uk.po.entities.Product();
         System.out.println("Stworzono nowy produkt, oto jego domyślne wartości: " + p);
         System.out.println("Zmieniono wartości produktu: ");
         p.setName("Mikser");
