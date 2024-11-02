@@ -6,6 +6,8 @@ public class Product
     private Category category = new Category("kategoria");
     private float price = 0;
 
+    private Currency currency = Currency.PLN;
+
     public Product (String name, float price)
     {
         try {
@@ -28,6 +30,22 @@ public class Product
             name = null;
             price = 0;
             category = null;
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Product (String name, float price, Category category, Currency currency)
+    {
+        try {
+            setName(name);
+            setPrice(price);
+            setCategory(category);
+            setCurrency(currency);
+        } catch (Exception e) {
+            name = null;
+            price = 0;
+            category = null;
+            currency = null;
             throw new RuntimeException(e);
         }
     }
@@ -57,6 +75,14 @@ public class Product
         if(price > 0) {
             this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
                        }
+    }
+
+    public Currency getCurrency() {
+        return currency;
+    }
+
+    public void setCurrency(Currency currency) {
+        this.currency = currency;
     }
 
     @Override
