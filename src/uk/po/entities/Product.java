@@ -91,6 +91,6 @@ public class Product
     @Override
     public String toString() {
         return "uk.po.entities.Product: " + name +  " category: " + category +
-                " price: " + price;
+                " price: " + price + " currency: " + currency;
     }
 }

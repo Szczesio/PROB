@@ -1,4 +1,6 @@
 import uk.po.entities.Category;
+import uk.po.entities.Product;
+import uk.po.enums.Currency;
 
 public class Main
 {
@@ -6,22 +8,9 @@ public class Main
     public static void main (String[] args)
     {
         Category c = new Category("1");
-        System.out.println("Kategoria 1 utworzona konstruktorem: " + c);
-        System.out.println("Nazwa kategorii: " + c.getName());
-        System.out.println("Nazwa kategorii: '1' zostaje zmieniona na '2' ");
-        c.setName("2");
-        System.out.println("Wyświetlanie kategorii po zmianie nazwy: " + c);
-       /* uk.po.entities.Product p = new uk.po.entities.Product();
-        System.out.println("Stworzono nowy produkt, oto jego domyślne wartości: " + p);
-        System.out.println("Zmieniono wartości produktu: ");
-        p.setName("Mikser");
-        System.out.println(p.getName());
-        p.setCategory(c);
-        System.out.println(p.getCategory());
-        p.setPrice(1.569f);
-        System.out.println(p.getPrice());
-        */
-
+        Currency curr = Currency.USD;
+        Product p = new Product("Produkt", 1.578f, c, curr);
+        System.out.println(p);
     }
 
 
