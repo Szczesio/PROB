@@ -1,4 +1,7 @@
+package uk.po.entities;
+
 import java.math.BigDecimal;
+import uk.po.enums.Currency;
 
 public class Product
 {
@@ -87,7 +90,7 @@ public class Product
 
     @Override
     public String toString() {
-        return "Product: " + name +  " category: " + category +
-                " price: " + price;
+        return "uk.po.entities.Product: " + name +  " category: " + category +
+                " price: " + price + " currency: " + currency;
     }
 }

@@ -1,3 +1,5 @@
+package uk.po.entities;
+
 public class Category
 {
     private String name = " ";
@@ -13,7 +15,7 @@ public class Category
 
     @Override
     public String toString() {
-        return "Category:" +
+        return "uk.po.entities.Category:" +
                 "name='" + name + '\'';
     }
 
