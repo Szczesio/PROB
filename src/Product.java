@@ -6,6 +6,33 @@ public class Product
     private Category category = new Category("kategoria");
     private float price = 0;
 
+    public Product (String name, float price)
+    {
+        try {
+            setName(name);
+            setPrice(price);
+            } catch (Exception e) {
+            name = null;
+            price = 0;
+            throw new RuntimeException(e);
+        }
+    }
+
+    public Product (String name, float price, Category category)
+    {
+        try {
+            setName(name);
+            setPrice(price);
+            setCategory(category);
+            } catch (Exception e) {
+            name = null;
+            price = 0;
+            category = null;
+            throw new RuntimeException(e);
+        }
+    }
+
+
     public String getName() {
         return name;
     }

@@ -3,7 +3,12 @@ public class Category
     private String name = " ";
 
     public Category( String name) {
-        setName(name);
+        try {
+            setName(name);
+            } catch (Exception e) {
+            name = null;
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
