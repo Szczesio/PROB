@@ -4,7 +4,7 @@ public class Category
 {
     private String name = " ";
 
-    public Category( String name) {
+    private Category( String name) {
         try {
             setName(name);
             } catch (Exception e) {
@@ -12,6 +12,12 @@ public class Category
             throw new RuntimeException(e);
         }
     }
+
+    public static Category from(String name)
+    {
+        return new Category(name);
+    }
+
 
     @Override
     public String toString() {
