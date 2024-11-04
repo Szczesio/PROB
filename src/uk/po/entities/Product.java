@@ -11,7 +11,12 @@ public class Product
 
     private Currency currency = Currency.PLN;
 
-    public Product (String name, float price)
+    public static Product create(String name, Category category, float price)
+    {
+        return new Product(name, price, category);
+    }
+
+    private Product (String name, float price)
     {
         try {
             setName(name);
@@ -23,7 +28,7 @@ public class Product
         }
     }
 
-    public Product (String name, float price, Category category)
+    private Product (String name, float price, Category category)
     {
         try {
             setName(name);
@@ -37,7 +42,7 @@ public class Product
         }
     }
 
-    public Product (String name, float price, Category category, Currency currency)
+    private Product (String name, float price, Category category, Currency currency)
     {
         try {
             setName(name);
