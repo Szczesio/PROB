@@ -6,7 +6,7 @@ import uk.po.enums.Currency;
 public class Product
 {
     private String name = "Produkt";
-    private Category category = new Category("kategoria");
+    private Category category = Category.from("kategoria");
     private float price = 0;
 
     private Currency currency = Currency.PLN;
