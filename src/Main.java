@@ -7,9 +7,12 @@ public class Main
 
     public static void main (String[] args)
     {
-        Category c = new Category("1");
+
+        Category c = Category.from("meble");
+        //c.setName(null);
+        Product p = Product.create("fotel", c, 445.59f);
         Currency curr = Currency.USD;
-        Product p = new Product("Produkt", 1.578f, c, curr);
+        p.setCurrency(curr);
         System.out.println(p);
     }
 
