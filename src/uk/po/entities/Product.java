@@ -16,6 +16,16 @@ public class Product
         return new Product(name, price, category);
     }
 
+    public static Product create(String name, float price)
+    {
+        return new Product(name, price);
+    }
+
+    public static Product create(String name, float price, Category category, Currency currency)
+    {
+        return new Product(name, price, category, currency);
+    }
+
     private Product (String name, float price)
     {
         try {
