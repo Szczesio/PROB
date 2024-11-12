@@ -108,4 +108,37 @@ public class Product
         return "uk.po.entities.Product: " + name +  " category: " + category +
                 " price: " + price + " currency: " + currency;
     }
+
+    public class StringValidator {
+        private StringValidator instance;
+        private StringValidator() {}
+        public StringValidator getInstance() {
+            if(instance == null) {
+                instance = new StringValidator();
+            }
+            return instance;
+        }
+        public boolean isValid(String value) {
+
+            return value != null && !value.isEmpty();
+
+        }
+    }
+
+    public class CurrencyValidator {
+        private CurrencyValidator instance;
+        private CurrencyValidator() {}
+        public CurrencyValidator getInstance() {
+            if(instance == null) {
+                instance = new CurrencyValidator();
+            }
+            return instance;
+        }
+        public boolean isValid(Currency value) {
+
+            return value != null && !value.isEmpty();
+
+        }
+    }
+
 }

@@ -39,4 +39,21 @@ public class Category
     public String getName() {
         return name;
     }
+
+    public class StringValidator {
+        private  StringValidator instance;
+        private StringValidator() {}
+        public  StringValidator getInstance() {
+            if(instance == null) {
+                instance = new StringValidator();
+            }
+            return instance;
+        }
+        public boolean isValid(String value) {
+
+            return value != null && !value.isEmpty();
+
+        }
+    }
+
 }

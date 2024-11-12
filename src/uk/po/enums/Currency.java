@@ -15,4 +15,8 @@ public enum Currency {
     public void setName(String name) {
         this.name = name;
     }
+
+    public boolean isEmpty() {
+        return this == PLN || this == USD;
+    }
 }
