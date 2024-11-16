@@ -9,7 +9,6 @@ public class Main
     {
 
         Category c = Category.from("meble");
-        //c.setName(null);
         Product p = Product.create("fotel", c, 445.59f);
         Currency curr = Currency.USD;
         p.setCurrency(curr);

@@ -40,17 +40,25 @@ public class Category
         return name;
     }
 
-    public class StringValidator {
+    public static class StringValidator {
         private  StringValidator instance;
         private StringValidator() {}
         public  StringValidator getInstance() {
-            if(instance == null) {
-                instance = new StringValidator();
-            }
             return instance;
         }
-        public boolean isValid(String value) {
+        public boolean isEmpty(String value) {
+            return value.length() == 0;
+        }
 
+        public boolean isValid(String value) {
+            if(instance == null) {
+                instance = new StringValidator();
+                throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
+            }
+            if(isEmpty(value)) {
+                instance = new StringValidator();
+                throw new IllegalArgumentException("Argument nie może być pusty");
+            }
             return value != null && !value.isEmpty();
 
         }

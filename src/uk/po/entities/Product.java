@@ -109,35 +109,51 @@ public class Product
                 " price: " + price + " currency: " + currency;
     }
 
-    public class StringValidator {
+    public static class StringValidator {
         private StringValidator instance;
         private StringValidator() {}
         public StringValidator getInstance() {
-            if(instance == null) {
-                instance = new StringValidator();
-            }
             return instance;
         }
-        public boolean isValid(String value) {
+        public boolean isEmpty(String value) {
+            return value.length() == 0;
+        }
 
+        public boolean isValid(String value) {
+            if(instance == null) {
+                instance = new StringValidator();
+                throw new IllegalArgumentException("Nazwa nie może mieć wartości NULL");
+            }
+            if(isEmpty(value)) {
+                instance = new StringValidator();
+                throw new IllegalArgumentException("Nazwa produktu nie może być pusta");
+            }
             return value != null && !value.isEmpty();
 
         }
     }
 
-    public class CurrencyValidator {
-        private CurrencyValidator instance;
-        private CurrencyValidator() {}
-        public CurrencyValidator getInstance() {
-            if(instance == null) {
-                instance = new CurrencyValidator();
-            }
+    public static class PriceValidator {
+        private PriceValidator instance;
+        private PriceValidator() {}
+        public PriceValidator getInstance() {
             return instance;
         }
-        public boolean isValid(Currency value) {
 
-            return value != null && !value.isEmpty();
-
+        public boolean isValid(float value) {
+            if(instance == null) {
+                instance = new PriceValidator();
+                throw new IllegalArgumentException("Cena nie może mieć wartości NULL");
+            }
+            if(value == 0) {
+                instance = new PriceValidator();
+                throw new IllegalArgumentException("Produkt nie może być darmowy");
+            }
+            if(value < 0) {
+                instance = new PriceValidator();
+                throw new IllegalArgumentException("Cena nie może być ujemna");
+            }
+            return value>=0;
         }
     }
 
