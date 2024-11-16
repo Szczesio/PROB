@@ -74,7 +74,10 @@ public class Product
     }
 
     public void setName(String name) {
-        if(name != null && name.length() != 0) this.name = name;
+        //if(name != null && name.length() != 0)
+        this.name = name;
+        StringValidator instance = new StringValidator();
+        instance.isValid(name);
     }
 
     public Category getCategory() {
@@ -90,9 +93,11 @@ public class Product
     }
 
     public void setPrice(float price) {
-        if(price > 0) {
+    //    if(price > 0) {
             this.price = new BigDecimal(price).setScale(2, BigDecimal.ROUND_HALF_UP).floatValue();
-                       }
+    //                   }
+        PriceValidator instance = new PriceValidator();
+        instance.isValid(price);
     }
 
     public Currency getCurrency() {
@@ -120,7 +125,7 @@ public class Product
         }
 
         public boolean isValid(String value) {
-            if(instance == null) {
+            if(value == null) {
                 instance = new StringValidator();
                 throw new IllegalArgumentException("Nazwa nie może mieć wartości NULL");
             }
@@ -141,10 +146,6 @@ public class Product
         }
 
         public boolean isValid(float value) {
-            if(instance == null) {
-                instance = new PriceValidator();
-                throw new IllegalArgumentException("Cena nie może mieć wartości NULL");
-            }
             if(value == 0) {
                 instance = new PriceValidator();
                 throw new IllegalArgumentException("Produkt nie może być darmowy");

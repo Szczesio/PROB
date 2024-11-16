@@ -7,7 +7,7 @@ public class Category
     private Category( String name) {
         try {
             setName(name);
-            } catch (Exception e) {
+            } catch (IllegalArgumentException e) {
             name = null;
             throw new RuntimeException(e);
         }
@@ -27,13 +27,15 @@ public class Category
 
     public void setName(String name) {
         // if(name != null && name.length() != 0) this.name = name;
-        try{
+        //try{
             this.name = name;
-        }catch(IllegalArgumentException e)
+            StringValidator instance = new StringValidator();
+            instance.isValid(name);
+       /* }catch(IllegalArgumentException e)
         {
             if(name == null) System.out.println("Argument nie może mieć wartości NULL");
             if(name.isEmpty()) System.out.println("Argument nie może być pusty");
-        }
+        }   */
     }
 
     public String getName() {
@@ -51,7 +53,7 @@ public class Category
         }
 
         public boolean isValid(String value) {
-            if(instance == null) {
+            if(value == null) {
                 instance = new StringValidator();
                 throw new IllegalArgumentException("Argument nie może mieć wartości NULL");
             }
