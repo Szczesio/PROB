@@ -9,11 +9,14 @@ public class Main
     {
 
         Category c = Category.from("meble");
-        Product p = Product.create("fotel", c, 445.59f);
         Currency curr = Currency.USD;
-        p.setCurrency(curr);
+
+        Product p = new Product.Builder("Fotel")
+                .category(c)
+                .price(45.67f)
+                .currency(curr).build();
+
         System.out.println(p);
     }
-
 
 }
